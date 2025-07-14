@@ -1,6 +1,6 @@
 public class RunningSumof1dArray {
     public static void main(String[] args) {
-        InnerRunningSumof1dArray solucao = new InnerRunningSumof1dArray();
+        InnerRunningSumof1dArray solution = new InnerRunningSumof1dArray();
 
     }
 }
