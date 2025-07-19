@@ -1,6 +1,8 @@
 public class RichestCustomerWealth {
     public static void main (String[] args){
         InnerRichestCustomerWealth solution = new InnerRichestCustomerWealth();
+        int[][] x = {{3,2,1},{1,2,3}};
+        System.out.println(solution.maximumWealth(x));
     }
 }
 

@@ -1,7 +1,10 @@
+import java.util.Arrays;
+
 public class RunningSumof1dArray {
     public static void main(String[] args) {
         InnerRunningSumof1dArray solution = new InnerRunningSumof1dArray();
-
+        int[] x = {1,2,3,4,5};
+        System.out.println(Arrays.toString(solution.runningSum(x)));
     }
 }
 
