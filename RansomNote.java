@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class RansomNote {
     public static void main(String[] args) {
-        InnerRansomNote2 solution = new InnerRansomNote2();
+        InnerRansomNote3 solution = new InnerRansomNote3();
         System.out.println(solution.canConstruct("aa", "bab"));
 
     }
@@ -13,7 +13,6 @@ class InnerRansomNote {
         for( int i = 0; i < ransomNote.length(); i++){
             char ransomChar = ransomNote.charAt(i);
             if(!magazine.contains(String.valueOf(ransomChar))){
-                System.err.println(magazine);
                 return false;
             }
             int index = magazine.indexOf(ransomChar);
@@ -41,6 +40,23 @@ class InnerRansomNote2 {
             if(currentCount == 0) return false;
 
             magazineChars.put(character, currentCount - 1);
+        }
+        return true;
+    }
+}
+
+class InnerRansomNote3 {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] alphabet = new int[26];
+
+        for (char c : ransomNote.toCharArray()) {
+        int i = magazine.indexOf(c, alphabet[c - 'a']);
+
+        if (i == -1) {
+            return false;
+        }
+
+        alphabet[c - 'a'] = i + 1;
         }
         return true;
     }
