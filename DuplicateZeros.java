@@ -2,8 +2,8 @@ import java.util.Arrays;
 
 public class DuplicateZeros {
     public static void main(String[] args){
-        int[] x = {1,2,0,4,5,0,2,0,1,0,4,0,9};
-        duplicateZeros(x);
+        int[] x = {1,0,2,3,5};
+        duplicateZeros2(x);
         System.out.println(Arrays.toString(x));
     }
 
@@ -17,5 +17,32 @@ public class DuplicateZeros {
         }
     }
 
+    public static void duplicateZeros2(int[] arr) {
+        int length = arr.length - 1;
+        int numZerosDoubles = 0;
+
+        for(int leftPointer = 0; leftPointer <= length - numZerosDoubles; leftPointer++){
+            if(arr[leftPointer] == 0){
+                if(leftPointer == length - numZerosDoubles){
+                    arr[leftPointer + numZerosDoubles] = 0;
+                    length--;
+                    break;
+                }
+                numZerosDoubles++;
+            }
+        }
+
+        int last = length - numZerosDoubles;
+
+        for(int rightPointer = last; rightPointer >= 0; rightPointer--){
+            if(arr[rightPointer] == 0){
+                arr[rightPointer + numZerosDoubles] = arr[rightPointer];
+                numZerosDoubles--;
+                arr[rightPointer + numZerosDoubles] = arr[rightPointer];
+            }else{
+                arr[rightPointer + numZerosDoubles] = arr[rightPointer];
+            }
+        }
+    }
 }
 
