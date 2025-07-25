@@ -7,7 +7,7 @@ public class MergeSortedArray {
         merge2(x, 2, y, 3);
     }
 
-    public static void merge2(int[] nums1, int m, int[] nums2, int n) {
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
         int nums1Pointer = m - 1, nums2Pointer = n - 1, size = nums1.length - 1;
         int[] aux = new int[size + 1];
         
@@ -23,5 +23,28 @@ public class MergeSortedArray {
         }
     }
         for (int i : aux) System.out.println(i);  
+    }
+
+    public static void merge2(int[] nums1, int m, int[] nums2, int n) {
+        int p1 = m - 1, p2 = n - 1, p = nums1.length - 1;
+        
+        while(p1 >= 0 && p2 >= 0){
+            if(nums1[p1] > nums2[p2]){
+                nums1[p] = nums1[p1--];
+            } else {
+                nums1[p] = nums2[p2--];
+            }
+            p--;
+        }
+
+        while (p2 >= 0) {
+            nums1[p] = nums2[p2];
+            p--;
+            p2--;
+        }
+
+        for (int i : nums1) {
+            System.out.println(i);
+        }
     }
 }
